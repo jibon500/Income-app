@@ -1,1 +1,124 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ইনকাম ওয়েবসাইট</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      font-size: 24px;
+    }
+    .user-section {
+      margin-top: 20px;
+    }
+    .user-icon {
+      font-size: 60px;
+      color: #555;
+    }
+    .balance {
+      margin-top: 10px;
+      font-size: 20px;
+      background: #fff;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .banner-ad {
+      margin: 20px auto;
+      background: #ddd;
+      padding: 10px;
+      width: 90%;
+      max-width: 500px;
+      border: 2px dashed #aaa;
+    }
+    .notification-bar {
+      background: #222;
+      color: #fff;
+      padding: 10px;
+      overflow: hidden;
+      position: relative;
+      margin: 20px auto;
+    }
+    .notification-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 10s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .income-btn {
+      margin-top: 20px;
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .adsense-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>ইনকাম ওয়েবসাইট</header>
+
+  <div class="user-section">
+    <div class="user-icon">👤</div>
+    <div class="balance">Balance: $<span id="balance">0.00</span></div>
+
+    <div class="banner-ad">
+      এখানে ম্যানুয়ালি ব্যানার এড করুন
+    </div>
+  </div>
+
+  <div class="notification-bar">
+    <div class="notification-text">এই নোটিফিকেশন বারটি চলমান। আপনি এখানে যে কোনো বার্তা দিতে পারেন।</div>
+  </div>
+
+  <button class="income-btn" onclick="showAdAndEarn()">ইনকাম করুন</button>
+
+  <div class="adsense-container" id="adContainer" style="display: none;">
+    <!-- নিচের অংশে আপনার নিজস্ব AdSense কোড বসান -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <script>
+    let balance = 0;
+
+    function showAdAndEarn() {
+      const adDiv = document.getElementById('adContainer');
+      adDiv.style.display = 'block';
+
+      // Add $0.10
+      balance += 0.10;
+      document.getElementById('balance').innerText = balance.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
